@@ -42,7 +42,7 @@ public class HaircutTS extends AbstractTaskSolution implements
 		List<Integer> m1 = new ArrayList<Integer>(m);
 		for(int i = 0; i < m1.size(); i++) {
 			for(int j = i + 1; j < m1.size(); j++) {
-				if (m1.get(i) == m1.get(j)) {
+				if (m1.get(i).equals(m1.get(j))) {
 					m1.remove(j);
 					j--;
 				}
@@ -50,12 +50,30 @@ public class HaircutTS extends AbstractTaskSolution implements
 		}
 		
 		
+		List<Integer> m2 = new ArrayList<Integer>();
 		out:
 		for(int i : m1) {
 			for(int j :m1) {
 				if (j % i == 0 && j / i > 1)
 					continue out;
 			}
+			m2.add(i);
+			
+		}
+		for(int i = 2; i < Collections.max(m2); i++) {
+			for(int j = 0; j < m2.size(); j++) {
+				int res;
+				if (m2.get(j) % i == 0 && (res = m2.get(j) / i) > 1) {
+					m2.add(res);
+					m2.add(i);
+					m2.remove(j);
+					i--;
+					break;
+				}
+			}
+		}
+		
+		for(int i: m2) {
 			fullCycleTime = fullCycleTime.multiply(BigInteger.valueOf(i));
 		}
 		BigInteger fullCycleClients = BigInteger.ZERO;
