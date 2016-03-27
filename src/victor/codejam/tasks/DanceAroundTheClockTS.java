@@ -15,8 +15,6 @@ public class DanceAroundTheClockTS extends AbstractTaskSolution implements
 		
 		kOne--;
 		
-		//int kPos = (kOne % 2 == 0) ? nRightTurns : (nDancers - nLeftTurns) % nTurns;
-		
 		if (kOne % 2 == 0) {
 			right = (kOne + 1 + 2*nTurns) % nDancers;
 			left =  (kOne - 1 + 2*nTurns + nDancers) % nDancers;
@@ -26,7 +24,6 @@ public class DanceAroundTheClockTS extends AbstractTaskSolution implements
 		}
 		right++;
 		left++;
-		//TODO
 	}
 
 	@Override
