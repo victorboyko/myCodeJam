@@ -89,6 +89,7 @@ public class HaircutTS extends AbstractTaskSolution implements
 			t.add(0);
 		}
 		for(; place!=0; place--) {
+			if (place % 100000 == 0) System.out.print(".");
 			result = getInd(t);
 		}
 		result++;

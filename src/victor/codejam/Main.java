@@ -10,7 +10,7 @@ public class Main {
 		List<String> inputLines = FileHelper.read();
 		
 		long startMillis = System.currentTimeMillis();
-		List<String> outputLines = new victor.codejam.tasks.TypewriterMonkeyTS().processAndReply(inputLines);
+		List<String> outputLines = new victor.codejam.tasks.AlwaysTurnLeftTS().processAndReply(inputLines);
 		
 		System.out.println("Duration: " + (System.currentTimeMillis() - startMillis) + " ms");
 		//FileHelper.save(outputLines);
