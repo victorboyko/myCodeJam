@@ -82,9 +82,32 @@ public class RevengeOfThePancakesTS extends AbstractTaskSolution implements
 		return res;
 	}
 	
+	boolean isAllFace(boolean[] array) {
+		for(boolean b : array) {
+			if (!b) return false;
+		}
+		return true;
+	}
+	
 	@Override
 	protected void executeSolutionBody(TestCase testCase) {
-		result = getDepth(bArr);
+		//result = getDepth(bArr);
+		
+		result = 0;
+		while(!isAllFace(bArr)) {
+			for(int i = 0; i < bArr.length; i++) {
+				if (!bArr[i] && (i == bArr.length-1 || bArr[i+1]) || (i < bArr.length-1 && bArr[i] && !bArr[i+1]) ) {
+					boolean[] temp = new boolean[i+1];
+					System.arraycopy(bArr, 0, temp, 0, temp.length);
+					reverse(temp);
+					negate(temp);
+					System.arraycopy(temp, 0, bArr, 0, temp.length);
+					result++;
+					break;
+				}
+			}
+		}
+		
 	}
 
 	@Override
