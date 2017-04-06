@@ -1,0 +1,1 @@
+java -cp ".;bin" victor.codejam.standalone.BBFsTS < test.txt > out.txt
